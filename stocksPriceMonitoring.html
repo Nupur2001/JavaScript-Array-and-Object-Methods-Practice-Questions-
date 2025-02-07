@@ -7,6 +7,15 @@
   </head>
   <body>
     <script>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
       const stockData = [
         { symbol: "AAPL", price: 150, change: 2.5 },
         { symbol: "GOOGL", price: 2800, change: -10 },
@@ -30,13 +39,23 @@
 
       // Transform the stockData array to include a status field that indicates "up" or "down" based on the change value.
 
-      let newStocksData = [
-        { symbol: "AAPL", price: 150, change: 2.5, status: "up" },
-        { symbol: "GOOGL", price: 2800, change: -10, status: "down" },
-        { symbol: "MSFT", price: 300, change: 1, status: "up" },
-        { symbol: "TSLA", price: 1100, change: -5, status: "down" },
-        { symbol: "AMZN", price: 3500, change: 20, status: "up" },
-      ];
+      // let newStocksData = [
+      //   { symbol: "AAPL", price: 150, change: 2.5, status: "up" },
+      //   { symbol: "GOOGL", price: 2800, change: -10, status: "down" },
+      //   { symbol: "MSFT", price: 300, change: 1, status: "up" },
+      //   { symbol: "TSLA", price: 1100, change: -5, status: "down" },
+      //   { symbol: "AMZN", price: 3500, change: 20, status: "up" },
+      // ];
+      let newStocksData = stockData.map((s) => ({
+        ...s,
+        status: s.change > 0 ? "up" : "down",
+      }));
+
+      console.log(newStocksData);
+    </script>
+  </body>
+</html>
+
     </script>
   </body>
 </html>
