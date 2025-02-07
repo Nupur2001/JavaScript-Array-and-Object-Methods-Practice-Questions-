@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const company = {
+        Sales: [
+          { name: "John", age: 28, salary: 50000 },
+          { name: "Doe", age: 35, salary: 60000 },
+        ],
+        HR: [
+          { name: "Jane", age: 30, salary: 55000 },
+          { name: "Alice", age: 25, salary: 45000 },
+        ],
+        IT: [
+          { name: "Bob", age: 40, salary: 70000 },
+          { name: "Eve", age: 32, salary: 65000 },
+        ],
+      };
+
+      // Calculate the total salary for all employees in the company
+
+      let salaryInSales = company.Sales.map((s) => s.salary);
+      let salaryInHR = company.HR.map((s) => s.salary);
+      let salaryInIT = company.IT.map((s) => s.salary);
+
+      let salariesInSales = salaryInSales.reduce(
+        (total, currentValue) => total + currentValue
+      );
+      let salariesInHR = salaryInHR.reduce(
+        (total, currentValue) => total + currentValue
+      );
+      let salariesInIT = salaryInIT.reduce(
+        (total, currentValue) => total + currentValue
+      );
+
+      console.log(
+        "Total Salary: ",
+        salariesInSales + salariesInHR + salariesInIT
+      );
+
+      // console.log(salariesInSales)
+      // console.log(salariesInHR)
+      // console.log(salariesInIT)
+
+      // console.log(salaryInSales)
+      // console.log(salaryInHR)
+      // console.log(salaryInIT)
+
+      // Create a list of all employees older than 30.
+      let empAgeSales = company.Sales.filter((a) => a.age > 30);
+      let empAgeHR = company.HR.filter((a) => a.age > 30);
+      let empAgeIT = company.IT.filter((a) => a.age > 30);
+
+      let EmployeesAbove30 = [empAgeSales, empAgeHR, empAgeIT];
+      console.log("Employees above 30: ", EmployeesAbove30);
+
+      // Return the department with the highest average salary.
+      let salariesInSalesAverage = salaryInSales.reduce(
+        (total, currentValue) => (total + currentValue) / salaryInSales.length
+      );
+      console.log(
+        "Sales department employees salary average: ",
+        salariesInSalesAverage
+      );
+
+      let salariesInHRAverage = salaryInHR.reduce(
+        (total, currentValue) => (total + currentValue) / salaryInHR.length
+      );
+      console.log(
+        "HR department employees salary average: ",
+        salariesInHRAverage
+      );
+
+      let salariesInITAverage = salaryInIT.reduce(
+        (total, currentValue) => (total + currentValue) / salaryInIT.length
+      );
+      console.log(
+        "IT department employees salary average: ",
+        salariesInITAverage
+      );
+
+      let highestAverageSalaryDepartment = Math.max(
+        salariesInHRAverage,
+        salariesInITAverage,
+        salariesInSalesAverage
+      );
+
+      console.log(`Highest average salary: ${highestAverageSalaryDepartment}`);
+
+      if (highestAverageSalaryDepartment === salariesInSalesAverage) {
+        console.log(
+          `Highest average salary department: Sales\nHighest average salary: ${highestAverageSalaryDepartment}`
+        );
+      } else if (highestAverageSalaryDepartment === salariesInHRAverage) {
+        console.log(
+          `Highest average salary department: HR\nHighest average salary: ${highestAverageSalaryDepartment}`
+        );
+      } else if (highestAverageSalaryDepartment === salariesInITAverage) {
+        console.log(
+          `Highest average salary department: IT\nHighest average salary: ${highestAverageSalaryDepartment}`
+        );
+      } else {
+        console.log("None");
+      }
+
+      // Find and return the name of the youngest employee in the company.
+      let ageSales = company.Sales.map((a) => a.age);
+      let ageHR = company.HR.map((a) => a.age);
+      let ageIT = company.IT.map((a) => a.age);
+      // console.log(ageSales)
+
+      let ages = ageSales.concat(ageHR, ageIT);
+      let youngestAgedEmp = Math.min(ages);
+      console.log(youngestAgedEmp); //It's returning NAN
+
+      // Transform the company object into an array of employee records, where each record includes the department name.
+      let employee = [
+        { name: "John", age: 28, salary: 50000, department: "Sales" },
+        { name: "Doe", age: 35, salary: 60000, department: "Sales" },
+        { name: "Jane", age: 30, salary: 55000, department: "HR" },
+        { name: "Alice", age: 25, salary: 45000, department: "HR" },
+        { name: "Bob", age: 40, salary: 70000, department: "IT" },
+        { name: "Eve", age: 32, salary: 65000, department: "IT" },
+      ];
+      console.log(employee);
+    </script>
+  </body>
+</html>
