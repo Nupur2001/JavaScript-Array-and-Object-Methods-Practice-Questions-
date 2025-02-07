@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const events = [
+        {
+          name: "Music Fest",
+          date: "2024-12-01",
+          ticketsSold: 500,
+          maxTickets: 1000,
+        },
+        {
+          name: "Tech Conference",
+          date: "2024-11-25",
+          ticketsSold: 200,
+          maxTickets: 300,
+        },
+        {
+          name: "Food Expo",
+          date: "2024-12-10",
+          ticketsSold: 750,
+          maxTickets: 750,
+        },
+        {
+          name: "Art Fair",
+          date: "2024-11-20",
+          ticketsSold: 100,
+          maxTickets: 200,
+        },
+      ];
+
+      // Find events that are sold out.
+
+      let ticketSold = events.filter((e) => e.maxTickets - e.ticketsSold === 0);
+      console.log(ticketSold);
+
+      let eventMaxTickets = events.map((ts) => ts.maxTickets);
+
+      // Calculate the total number of tickets sold across all events.
+
+      let totalTicketsSold = events.reduce(
+        (total, currentValue) => total + currentValue.ticketsSold,
+        0
+      );
+      console.log(totalTicketsSold);
+    </script>
+  </body>
+</html>
