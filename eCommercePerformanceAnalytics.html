@@ -1,100 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      const orders = [
-        {
-          id: 1,
-          customer: "Alice",
-          items: ["Shoes", "Bag"],
-          total: 120,
-          status: "delivered",
-        },
-        {
-          id: 2,
-          customer: "Bob",
-          items: ["Watch"],
-          total: 80,
-          status: "pending",
-        },
-        {
-          id: 3,
-          customer: "Alice",
-          items: ["Shoes", "Hat"],
-          total: 150,
-          status: "delivered",
-        },
-        {
-          id: 4,
-          customer: "Eve",
-          items: ["Shoes"],
-          total: 70,
-          status: "delivered",
-        },
-      ];
 
-      // Find all delivered orders and return their total amounts.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      let orderDelivered = orders.filter(
-        (order) => order.status == "delivered"
-      );
-      let orderDeliveredAmount = orderDelivered.map(
-        (orderDelivered) => orderDelivered.total
-      );
-      console.log(orderDelivered);
-      console.log(orderDeliveredAmount);
+<body>
+  <script>
+    /*
+E-commerce Platform Analytics
+You’re working on an analytics dashboard for an e-commerce platform.
+An array of objects contains customer orders:
+const orders = [
+{ id: 1, customer: 'Alice', items: ['Shoes','Bag'], total: 120, status: 'delivered' },
+{ id: 2, customer: 'Bob', items: ['Watch'], total: 80, status: 'pending' },
+{ id: 3, customer: 'Alice', items: ['Shoes','Hat'], total: 150, status: 'delivered' },
+{ id: 4, customer: 'Eve', items: ['Shoes'], total: 70, status: 'delivered' },
+];
+Tasks:
+Find all delivered orders and return their total amounts.
+Create a list of unique customers who placed orders.
+Calculate the total revenue from delivered orders.
+Return the names of customers who ordered "Shoes".
+Sort the orders by their total amounts in descending order.
+    */
+    const orders = [
+      {
+        id: 1,
+        customer: "Alice",
+        items: ["Shoes", "Bag"],
+        total: 120,
+        status: "delivered",
+      },
+      {
+        id: 2,
+        customer: "Bob",
+        items: ["Watch"],
+        total: 80,
+        status: "pending",
+      },
+      {
+        id: 3,
+        customer: "Alice",
+        items: ["Shoes", "Hat"],
+        total: 150,
+        status: "delivered",
+      },
+      {
+        id: 4,
+        customer: "Eve",
+        items: ["Shoes"],
+        total: 70,
+        status: "delivered",
+      },
+    ];
 
-      // Create a list of unique customers who placed orders.
+    // Find all delivered orders and return their total amounts.
 
-      let newOrders = [
-        {
-          id: 5,
-          customer: "Elena",
-          items: ["Lipstick", "Hair Brush"],
-          total: 500,
-          status: "placed",
-        },
-        {
-          id: 6,
-          customer: "Rachel",
-          items: ["Coat", "Jacket"],
-          total: 1000,
-          status: "placed",
-        },
-        {
-          id: 7,
-          customer: "Steve",
-          items: ["Tshirt"],
-          total: 200,
-          status: "placed",
-        },
-      ];
+    let orderDelivered = orders.filter(
+      (order) => order.status == "delivered"
+    );
+    let orderDeliveredAmount = orderDelivered.map(
+      (orderDelivered) => orderDelivered.total
+    );
+    console.log(orderDelivered);
+    console.log(orderDeliveredAmount);
 
-      let allOrders = orders.concat(newOrders);
-      console.log(allOrders);
+    // Create a list of unique customers who placed orders.
 
-      // Calculate the total revenue from delivered orders.
-      let orderDeliveredTotalAmount = orderDeliveredAmount.reduce(
-        (sum, currentValue) => sum + currentValue
-      );
-      console.log(orderDeliveredTotalAmount);
+    let newOrders = [
+      {
+        id: 5,
+        customer: "Elena",
+        items: ["Lipstick", "Hair Brush"],
+        total: 500,
+        status: "placed",
+      },
+      {
+        id: 6,
+        customer: "Rachel",
+        items: ["Coat", "Jacket"],
+        total: 1000,
+        status: "placed",
+      },
+      {
+        id: 7,
+        customer: "Steve",
+        items: ["Tshirt"],
+        total: 200,
+        status: "placed",
+      },
+    ];
 
-      // Return the names of customers who ordered "Shoes".
-      let customerWhoOrderedShoes = allOrders.filter((shoesInOrder) =>
-        shoesInOrder.items.includes("Shoes")
-      );
-      console.log(customerWhoOrderedShoes);
+    let allOrders = orders.concat(newOrders);
+    console.log(allOrders);
 
-      // Sort the orders by their total amounts in descending order.
-      let orderAmountInDescendingOrder = allOrders
-        .slice()
-        .sort((a, b) => b.total - a.total);
-      console.log(orderAmountInDescendingOrder);
-    </script>
-  </body>
+    // Calculate the total revenue from delivered orders.
+    let orderDeliveredTotalAmount = orderDeliveredAmount.reduce(
+      (sum, currentValue) => sum + currentValue
+    );
+    console.log(orderDeliveredTotalAmount);
+
+    // Return the names of customers who ordered "Shoes".
+    let customerWhoOrderedShoes = allOrders.filter((shoesInOrder) =>
+      shoesInOrder.items.includes("Shoes")
+    );
+    console.log(customerWhoOrderedShoes);
+
+    // Sort the orders by their total amounts in descending order.
+    let orderAmountInDescendingOrder = allOrders
+      .slice()
+      .sort((a, b) => b.total - a.total);
+    console.log(orderAmountInDescendingOrder);
+  </script>
+</body>
+
 </html>
