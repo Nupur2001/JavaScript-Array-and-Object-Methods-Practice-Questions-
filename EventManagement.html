@@ -10,24 +10,22 @@
 <body>
   <script>
     /*
-Movie Recommendation System
-You are building a system that suggests movies based on user preferences.
-An array contains movie data:
-const movies = [
-{ id: 1, title: 'Inception', genre: 'Sci-Fi', ratings: [5, 4, 5] },
-{ id: 2, title: 'Titanic', genre: 'Romance', ratings: [4, 4, 5] },
-{ id: 3, title: 'Interstellar', genre: 'Sci-Fi', ratings: [5, 5, 5] },
-
-{ id: 4, title: 'Notebook', genre: 'Romance', ratings: [4, 3, 4] },
-
-{ id: 5, title: 'Avengers', genre: 'Action', ratings: [5, 5, 4] },
+Event Management System
+You are creating an application to manage event bookings.
+An array contains event details:
+const events = [
+{ name: 'Music Fest', date: '2024-12-01', ticketsSold: 500, maxTickets: 1000 },
+{ name: 'Tech Conference', date: '2024-11-25', ticketsSold: 200, maxTickets: 300 },
+{ name: 'Food Expo', date: '2024-12-10', ticketsSold: 750, maxTickets: 750 },
+{ name: 'Art Fair', date: '2024-11-20', ticketsSold: 100, maxTickets: 200 },
 ];
 Tasks:
--Calculate the average rating for each movie and return movies with an average rating > 4.5.
--Group the movies by genre.
--Return the top-rated movie in each genre.
--Find the total number of movies in each genre.
--Transform the movies array to include a property isRecommended , which is true if the average rating > 4.
+-Find events that are sold out.
+-Calculate the total number of tickets sold across all events.
+-Sort the events by the percentage of tickets sold in descending order.
+Add a new field remainingTickets to each event, indicating the number of tickets left.
+-Return events happening after a specific date (e.g.,
+'2024-11-30' )
     */
     const events = [
       {
