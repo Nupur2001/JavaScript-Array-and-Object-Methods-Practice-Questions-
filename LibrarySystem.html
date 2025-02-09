@@ -1,70 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      const books = [
-        {
-          title: "Book A",
-          author: "Author 1",
-          copies: 10,
-          genres: ["Fiction", "Drama"],
-        },
-        {
-          title: "Book B",
-          author: "Author 2",
-          copies: 5,
-          genres: ["Non-Fiction"],
-        },
-        { title: "Book C", author: "Author 1", copies: 0, genres: ["Fiction"] },
-        {
-          title: "Book D",
-          author: "Author 3",
-          copies: 8,
-          genres: ["Drama", "Mystery"],
-        },
-      ];
 
-      //   Return all books written by a specific author (e.g., "Author 1")
-      let author1 = books.filter((a) => a.author == "Author 1");
-      let booksWrittenByAuthor1 = author1.map((b) => b.title);
-      console.log(booksWrittenByAuthor1);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      let author2 = books.filter((a) => a.author == "Author 2");
-      let booksWrittenByAuthor2 = author2.map((b) => b.title);
-      console.log(booksWrittenByAuthor2);
+<body>
+  <script>
+    /*
+    Library System
+You’re managing data for a library.
+An array of objects contains book information:
+const books = [
+{ title: 'Book A', author: 'Author 1', copies: 10, genres: ['Fiction'
+'Drama'] },
+{ title: 'Book B', author: 'Author 2', copies: 5, genres: ['Non-Fiction'] },
+{ title: 'Book C', author: 'Author 1', copies: 0, genres: ['Fiction'] },
+{ title: 'Book D', author: 'Author 3', copies: 8, genres: ['Drama','Mystery'] }
+];
 
-      let author3 = books.filter((a) => a.author == "Author 3");
-      let booksWrittenByAuthor3 = author3.map((b) => b.title);
-      console.log(booksWrittenByAuthor3);
+Tasks:
+-Return all books written by a specific author (e.g.,
+"Author 1").
+-Find all genres represented in the library without duplicates.
+-Sort the books in descending order by the number of copies available.
+-Calculate the total number of books available in the library.
+-Create a new array of books that only includes those available ( copies > 0 ).
+    */
+    const books = [
+      {
+        title: "Book A",
+        author: "Author 1",
+        copies: 10,
+        genres: ["Fiction", "Drama"],
+      },
+      {
+        title: "Book B",
+        author: "Author 2",
+        copies: 5,
+        genres: ["Non-Fiction"],
+      },
+      { title: "Book C", author: "Author 1", copies: 0, genres: ["Fiction"] },
+      {
+        title: "Book D",
+        author: "Author 3",
+        copies: 8,
+        genres: ["Drama", "Mystery"],
+      },
+    ];
 
-      // Find all genres represented in the library without duplicates.
-      let genresBooks = books.map((g) => g.genres);
-      // console.log(genresBooks)
-      let genresBooksSet = new Set(genresBooks);
-      console.log(genresBooksSet);
+    //   Return all books written by a specific author (e.g., "Author 1")
+    let author1 = books.filter((a) => a.author == "Author 1");
+    let booksWrittenByAuthor1 = author1.map((b) => b.title);
+    console.log(booksWrittenByAuthor1);
 
-      // Sort the books in descending order by the number of copies available
-      let copiesInDescendingOrder = books
-        .slice()
-        .sort((a, b) => b.copies - a.copies);
-      console.log(copiesInDescendingOrder);
+    let author2 = books.filter((a) => a.author == "Author 2");
+    let booksWrittenByAuthor2 = author2.map((b) => b.title);
+    console.log(booksWrittenByAuthor2);
 
-      // Calculate the total number of books available in the library.
-      let totalbooks = books.reduce(
-        (total, currentValue) => total + currentValue.copies,
-        0
-      );
-      console.log(totalbooks);
+    let author3 = books.filter((a) => a.author == "Author 3");
+    let booksWrittenByAuthor3 = author3.map((b) => b.title);
+    console.log(booksWrittenByAuthor3);
 
-      // Create a new array of books that only includes those available ( copies > 0 ).
-      let bookCopiesGreaterThan0 = books.filter((c) => c.copies > 0);
-      let inStockBooks = console.log(bookCopiesGreaterThan0);
-      console.log(inStockBooks);
-    </script>
-  </body>
+    // Find all genres represented in the library without duplicates.
+    let genresBooks = books.map((g) => g.genres);
+    // console.log(genresBooks)
+    let genresBooksSet = new Set(genresBooks);
+    console.log(genresBooksSet);
+
+    // Sort the books in descending order by the number of copies available
+    let copiesInDescendingOrder = books
+      .slice()
+      .sort((a, b) => b.copies - a.copies);
+    console.log(copiesInDescendingOrder);
+
+    // Calculate the total number of books available in the library.
+    let totalbooks = books.reduce(
+      (total, currentValue) => total + currentValue.copies,
+      0
+    );
+    console.log(totalbooks);
+
+    // Create a new array of books that only includes those available ( copies > 0 ).
+    let bookCopiesGreaterThan0 = books.filter((c) => c.copies > 0);
+    let inStockBooks = console.log(bookCopiesGreaterThan0);
+    console.log(inStockBooks);
+  </script>
+</body>
+
 </html>
