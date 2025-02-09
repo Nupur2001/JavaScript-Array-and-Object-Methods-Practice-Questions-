@@ -1,61 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-    <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      const stockData = [
-        { symbol: "AAPL", price: 150, change: 2.5 },
-        { symbol: "GOOGL", price: 2800, change: -10 },
-        { symbol: "MSFT", price: 300, change: 1 },
-        { symbol: "TSLA", price: 1100, change: -5 },
-        { symbol: "AMZN", price: 3500, change: 20 },
-      ];
 
-      // Return all stocks with a positive price change.
-      let changeInStocksPositive = stockData.filter((c) => c.change > 0);
-      console.log(changeInStocksPositive);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Data</title>
+</head>
 
-      // Sort the stocks in ascending order based on their price
-      let priceInAscendingOrder = stockData.sort((a, b) => a.price - b.price);
-      console.log(priceInAscendingOrder);
+<body>
+  <script>
+    /*
+    Stock Price Monitoring
+You are creating a service to monitor stock price data.
+An array contains stock price updates:
+const stockData = [
+{ symbol: 'AAPL', price: 150, change: 2.5 },
+{ symbol: 'GOOGL', price: 2800, change: -10 },
+{ symbol: 'MSFT', price: 300, change: 1 },
+{ symbol: 'TSLA', price: 1100, change: -5 },
+{ symbol: 'AMZN', price: 3500, change: 20 }
+];
+Tasks:
+-Return all stocks with a positive price change.
+-Find the stock with the highest price.
+-Calculate the average price of all stocks.
+-Sort the stocks in ascending order based on their price.
+-Transform the stockData array to include a status field that indicates "up" or "down" based on the change value.
+    */
+    const stockData = [
+      { symbol: "AAPL", price: 150, change: 2.5 },
+      { symbol: "GOOGL", price: 2800, change: -10 },
+      { symbol: "MSFT", price: 300, change: 1 },
+      { symbol: "TSLA", price: 1100, change: -5 },
+      { symbol: "AMZN", price: 3500, change: 20 },
+    ];
 
-      // Find the stock with the highest price
-      let priceStocks = stockData.map((p) => p.price);
-      let hightestPriceStocks = Math.max(...priceStocks);
-      console.log(hightestPriceStocks);
+    // Return all stocks with a positive price change.
+    let changeInStocksPositive = stockData.filter((c) => c.change > 0);
+    console.log("Positive price changes:", changeInStocksPositive);
 
-      // Transform the stockData array to include a status field that indicates "up" or "down" based on the change value.
+    // Sort the stocks in ascending order based on their price
+    let priceInAscendingOrder = [...stockData].sort((a, b) => a.price - b.price);
+    console.log("Stocks sorted by price:", priceInAscendingOrder);
 
-      // let newStocksData = [
-      //   { symbol: "AAPL", price: 150, change: 2.5, status: "up" },
-      //   { symbol: "GOOGL", price: 2800, change: -10, status: "down" },
-      //   { symbol: "MSFT", price: 300, change: 1, status: "up" },
-      //   { symbol: "TSLA", price: 1100, change: -5, status: "down" },
-      //   { symbol: "AMZN", price: 3500, change: 20, status: "up" },
-      // ];
-      let newStocksData = stockData.map((s) => ({
-        ...s,
-        status: s.change > 0 ? "up" : "down",
-      }));
+    // Find the stock with the highest price
+    let highestPriceStock = stockData.reduce((max, stock) => (stock.price > max.price ? stock : max));
+    console.log("Stock with highest price:", highestPriceStock);
 
-      console.log(newStocksData);
-    </script>
-  </body>
-</html>
+    // Transform the stockData array to include a status field that indicates "up" or "down" based on the change value.
+    let newStocksData = stockData.map((s) => ({
+      ...s,
+      status: s.change > 0 ? "up" : "down",
+    }));
 
-    </script>
-  </body>
+    console.log("Stocks with status:", newStocksData);
+  </script>
+</body>
+
 </html>
