@@ -49,11 +49,15 @@ Tasks:
 
     // Transform the stockData array to include a status field that indicates "up" or "down" based on the change value.
     let newStocksData = stockData.map((s) => ({
-      ...s,
+     symbol: s.symbol,
+     price: s.price,
+     change: s.change,
       status: s.change > 0 ? "up" : "down",
     }));
 
-    console.log("Stocks with status:", newStocksData);
+console.log(newStocksData)
+
+    
   </script>
 </body>
 
