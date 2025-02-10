@@ -30,48 +30,92 @@ Tasks:
 -Find the total number of movies in each genre.
 -Transform the movies array to include a property isRecommended , which is true if the average rating > 4.
 */
-    const movies = [
-      { id: 1, title: "Inception", genre: "Sci-Fi", ratings: [5, 4, 5] },
-      { id: 2, title: "Titanic", genre: "Romance", ratings: [4, 4, 5] },
-      { id: 3, title: "Interstellar", genre: "Sci-Fi", ratings: [5, 5, 5] },
-      { id: 4, title: "Notebook", genre: "Romance", ratings: [4, 3, 4] },
-      { id: 5, title: "Avengers", genre: "Action", ratings: [5, 5, 4] },
-    ];
+         const movies = [
+        { id: 1, title: "Inception", genre: "Sci-Fi", ratings: [5, 4, 5] },
+        { id: 2, title: "Titanic", genre: "Romance", ratings: [4, 4, 5] },
+        { id: 3, title: "Interstellar", genre: "Sci-Fi", ratings: [5, 5, 5] },
+        { id: 4, title: "Notebook", genre: "Romance", ratings: [4, 3, 4] },
+        { id: 5, title: "Avengers", genre: "Action", ratings: [5, 5, 4] },
+      ];
 
-    // Group the movies by genre.
-    const SciFi = movies.filter((s) => s.genre === "Sci-Fi");
-    const Romance = movies.filter((s) => s.genre === "Romance");
-    const Action = movies.filter((s) => s.genre === "Action");
+      // let allRatings = movies.map((r) => r.ratings);
+      // console.log(allRatings);
 
-    let SciFiMovies = [
-      console.log(movies.filter((s) => s.genre === "Sci-Fi")),
-    ];
-    console.log(SciFiMovies);
+      // let rates = allRatings.forEach((ratings) => {
+      //   let sumRatings = ratings.reduce(
+      //     (total, currentValue) => total + currentValue,
+      //     0
+      //   );
+      //   let avgRatings = (sumRatings / ratings.length).toFixed(1);
+      //   console.log(`Sum: ${sumRatings}, Average: ${avgRatings}`);
+      // });
+      // console.log(rates);
 
-    let romanceMovies = [
-      console.log(movies.filter((s) => s.genre === "Romance")),
-    ];
-    console.log(romanceMovies);
+      // Calculate the average rating for each movie and return movies with an average rating > 4.5.
+      let highRatedMovies = movies.filter((r) => {
+        let sumRatings = r.ratings.reduce(
+          (total, currentValue) => total + currentValue,
+          0
+        );
+        let avgRatings = (sumRatings / r.ratings.length).toFixed(1);
+        return avgRatings > 4.5;
+      });
 
-    let actionMovies = [
-      console.log(movies.filter((s) => s.genre === "Action")),
-    ];
-    console.log(actionMovies);
+      console.log(highRatedMovies);
 
-    // Calculate the average rating for each movie and return movies with an average rating > 4.5.
-    let sumRatings = (ratings) => {
-      let sum = ratings.reduce(
-        (total, currentValue) => total + currentValue,
-        0
-      );
-      return sum;
-    };
-    console.log(sumRatings());
+      // Transform the movies array to include a property isRecommended , which is true if the average rating > 4.
+      let moviesRecommended = movies.map((r) => {
+        let sumRatings = r.ratings.reduce(
+          (total, currentValue) => total + currentValue,
+          0
+        );
+        let avgRatings = (sumRatings / r.ratings.length).toFixed(1);
+        return {
+          id: r.id,
+          title: r.title,
+          genre: r.genre,
+          ratings: r.ratings,
+          isRecommended: avgRatings > 4 ? true : false,
+        };
+      });
 
-    // let inception =  movies.filter((t)=>t.title=="Inception")
-    // let inceptionRating=inception.map((r)=>r.ratings)
-    // let inceptionRatingSum=inceptionRating.reduce((total,currentValue)=>total+currentValue)
-    // console.log(inceptionRatingSum)
+      console.log(moviesRecommended);
+      // Group the movies by genre.
+      let SciFi = movies.filter((s) => s.genre === "Sci-Fi");
+      let Romance = movies.filter((s) => s.genre === "Romance");
+      let Action = movies.filter((s) => s.genre === "Action");
+
+      let SciFiMovies = [
+        console.log(movies.filter((s) => s.genre === "Sci-Fi")),
+      ];
+      console.log(SciFiMovies);
+
+      let romanceMovies = [
+        console.log(movies.filter((s) => s.genre === "Romance")),
+      ];
+      console.log(romanceMovies);
+
+      let actionMovies = [
+        console.log(movies.filter((s) => s.genre === "Action")),
+      ];
+      console.log(actionMovies);
+
+      let moviesByGenre = {
+        SciFiMovies: SciFi,
+        romanceMovies: Romance,
+        actionMovies: Action,
+      };
+      console.log(moviesByGenre);
+
+      // Find the total number of movies in each genre.
+      let genreLength = {
+        SciFiMovies: SciFi.length,
+        romanceMovies: Romance.length,
+        actionMovies: Action.length,
+      };
+      console.log(genreLength);
+
+      // Return the top-rated movie in each genre.
   </script>
 </body>
 
