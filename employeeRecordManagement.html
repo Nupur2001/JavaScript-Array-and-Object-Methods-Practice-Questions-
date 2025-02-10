@@ -34,7 +34,7 @@ Tasks:
 -Transform the company object into an array of employee records, where each record includes the department name.
 */
 
-      const company = {
+         const company = {
         Sales: [
           { name: "John", age: 28, salary: 50000 },
           { name: "Doe", age: 35, salary: 60000 },
@@ -146,15 +146,29 @@ Tasks:
       console.log(youngestAgedEmp); //It's returning NAN
 
       // Transform the company object into an array of employee records, where each record includes the department name.
-      let employee = [
-        { name: "John", age: 28, salary: 50000, department: "Sales" },
-        { name: "Doe", age: 35, salary: 60000, department: "Sales" },
-        { name: "Jane", age: 30, salary: 55000, department: "HR" },
-        { name: "Alice", age: 25, salary: 45000, department: "HR" },
-        { name: "Bob", age: 40, salary: 70000, department: "IT" },
-        { name: "Eve", age: 32, salary: 65000, department: "IT" },
-      ];
-      console.log(employee);
+      let employeeSales = company.Sales.flat(1);
+      let employeeHR = company.HR.flat(1);
+      let employeeIT = company.IT.flat(1);
+      let companyEmp = [employeeSales, employeeHR, empAgeIT];
+      let companyEmps = companyEmp.flat(3);
+      console.log(companyEmps);
+
+      let allEmployees = companyEmps.map((e) => {
+        return {
+          name: e.name,
+          age: e.age,
+          salary: e.salary,
+          department: "Sales" || "HR" || "IT", //Output Mentioned Below
+        };
+      });
+      console.log(allEmployees);
+      // Output->
+      //   { name: "John", age: 28, salary: 50000, department: "Sales" },
+      //   { name: "Doe", age: 35, salary: 60000, department: "Sales" },
+      //   { name: "Jane", age: 30, salary: 55000, department: "Sales" }, //HR
+      //   { name: "Alice", age: 25, salary: 45000, department: "Sales" },//HR
+      //   { name: "Bob", age: 40, salary: 70000, department: "Sales" },//IT
+      //   { name: "Eve", age: 32, salary: 65000, department: "Sales" },//IT
     </script>
   </body>
 </html>
