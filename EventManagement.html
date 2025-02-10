@@ -27,47 +27,75 @@ Add a new field remainingTickets to each event, indicating the number of tickets
 -Return events happening after a specific date (e.g.,
 '2024-11-30' )
     */
-    const events = [
-      {
-        name: "Music Fest",
-        date: "2024-12-01",
-        ticketsSold: 500,
-        maxTickets: 1000,
-      },
-      {
-        name: "Tech Conference",
-        date: "2024-11-25",
-        ticketsSold: 200,
-        maxTickets: 300,
-      },
-      {
-        name: "Food Expo",
-        date: "2024-12-10",
-        ticketsSold: 750,
-        maxTickets: 750,
-      },
-      {
-        name: "Art Fair",
-        date: "2024-11-20",
-        ticketsSold: 100,
-        maxTickets: 200,
-      },
-    ];
+     const events = [
+        {
+          name: "Music Fest",
+          date: "2024-12-01",
+          ticketsSold: 500,
+          maxTickets: 1000,
+        },
+        {
+          name: "Tech Conference",
+          date: "2024-11-25",
+          ticketsSold: 200,
+          maxTickets: 300,
+        },
+        {
+          name: "Food Expo",
+          date: "2024-12-10",
+          ticketsSold: 750,
+          maxTickets: 750,
+        },
+        {
+          name: "Art Fair",
+          date: "2024-11-20",
+          ticketsSold: 100,
+          maxTickets: 200,
+        },
+      ];
 
-    // Find events that are sold out.
+      // Find events that are sold out.
 
-    let ticketSold = events.filter((e) => e.maxTickets - e.ticketsSold === 0);
-    console.log(ticketSold);
+      let ticketSold = events.filter((e) => e.maxTickets - e.ticketsSold === 0);
+      console.log(ticketSold);
 
-    let eventMaxTickets = events.map((ts) => ts.maxTickets);
+      let eventMaxTickets = events.map((ts) => ts.maxTickets);
 
-    // Calculate the total number of tickets sold across all events.
+      // Calculate the total number of tickets sold across all events.
 
-    let totalTicketsSold = events.reduce(
-      (total, currentValue) => total + currentValue.ticketsSold,
-      0
-    );
-    console.log(totalTicketsSold);
+      let totalTicketsSold = events.reduce(
+        (total, currentValue) => total + currentValue.ticketsSold,
+        0
+      );
+      console.log(totalTicketsSold);
+
+      // Add a new field remainingTickets to each event, indicating the number of tickets left.
+      let allRemainingTickets = events.map((e) => {
+        return {
+          name: e.name,
+          date: e.date,
+          ticketsSold: e.ticketsSold,
+          maxTickets: e.maxTickets,
+          remainingTickets: e.maxTickets - e.ticketsSold,
+        };
+      });
+      console.log(allRemainingTickets);
+
+      // Sort the events by the percentage of tickets sold in descending order.
+      let ticketSoldPercentage = events.map((e) => {
+        return {
+          name: e.name,
+          date: e.date,
+          ticketsSold: e.ticketsSold,
+          maxTickets: e.maxTickets,
+          percentage: ((e.ticketsSold / e.maxTickets) * 100).toFixed(2),
+        };
+      });
+      console.log(ticketSoldPercentage);
+      let percentageDecreasingOrder = ticketSoldPercentage.sort(
+        (a, b) => b.percentage - a.percentage
+      );
+      console.log(percentageDecreasingOrder);
   </script>
 </body>
 
