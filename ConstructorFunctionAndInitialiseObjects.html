@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Constructor Function
+        function HouseKeeper(name,age,yearsOfExp,languagesKnown){
+            this.name=name,
+            this.age=age,
+            this.yearsOfExp=yearsOfExp,
+            this.languagesKnown=languagesKnown
+            this.clean=function(){
+               var cleanRoom= prompt("May I clean your room, sir?")
+               if (cleanRoom==="Yes") {
+                alert("Cleaning in progress....")
+               } else {
+                alert("Ok. Thank You Sir")
+               }
+            }
+        }
+// Initialise Objects
+        var houseKeeper1=new HouseKeeper("Janet",25,5,["English","Chinese"])
+        var houseKeeper2=new HouseKeeper("Caroline",35,15,["English"])
+        console.log(houseKeeper1.clean())
+        console.log(houseKeeper2.clean())
+    </script>
+</body>
+</html>
